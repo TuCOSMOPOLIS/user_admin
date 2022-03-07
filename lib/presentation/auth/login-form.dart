@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:users_admin/aplication/auth/auth-state.dart';
+import 'package:users_admin/aplication/auth/auth-value-failures.dart';
 import 'package:users_admin/interfaces/auth-failures.dart';
 import 'package:users_admin/presentation/home/home.dart';
 import 'package:users_admin/providers.dart';

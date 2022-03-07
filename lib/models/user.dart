@@ -1,7 +1,7 @@
 import 'package:users_admin/models/roles.dart';
 
 class User {
-  final String uid;
+  final String? uid;
   final String name;
   final String password;
   final String role;
@@ -10,7 +10,7 @@ class User {
   bool get isAdmin => role == Role.ADMIN;
 
   User(
-      {required this.uid,
+      {this.uid,
       required this.name,
       required this.password,
       required this.role,
@@ -23,4 +23,9 @@ class User {
         role: json['role'],
         active: json['active'],
       );
+
+  @override
+  String toString() {
+    return 'User(uid: $uid, name: $name, password: $password, role: $role, active: $active)';
+  }
 }

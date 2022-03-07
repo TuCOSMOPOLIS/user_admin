@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:users_admin/aplication/auth/auth-state.dart';
+import 'package:users_admin/aplication/auth/auth-value-failures.dart';
 import 'package:users_admin/interfaces/auth-repository.dart';
 
 class AuthStateNotifier extends StateNotifier<AuthState> {

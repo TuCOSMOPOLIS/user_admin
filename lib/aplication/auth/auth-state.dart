@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:users_admin/aplication/auth/auth-value-failures.dart';
 import 'package:users_admin/interfaces/auth-failures.dart';
 import 'package:users_admin/models/user.dart';
 
@@ -56,20 +57,4 @@ class AuthState {
   @override
   String toString() =>
       'AuthState(user: $user, password: $password, loading: $loading)';
-}
-
-abstract class ValueFailure<T> {
-  T get failedValue;
-}
-
-class InvalidUser extends ValueFailure<String> {
-  final String failedValue;
-
-  InvalidUser(this.failedValue);
-}
-
-class InvalidPassword extends ValueFailure<String> {
-  final String failedValue;
-
-  InvalidPassword(this.failedValue);
 }
