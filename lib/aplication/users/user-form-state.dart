@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:users_admin/aplication/users/user-value-failures.dart';
 import 'package:users_admin/aplication/users/user-value-objects.dart';
+import 'package:users_admin/interfaces/user-failures.dart';
 import 'package:users_admin/models/roles.dart';
+import 'package:users_admin/models/user.dart';
 
 part 'user-form-state.freezed.dart';
 
@@ -16,6 +17,8 @@ class UserFormState with _$UserFormState {
     @Default(Role.CASHIER) String role,
     @Default(false) bool loading,
     @Default(false) bool showErrors,
+    @Default(const None())
+        Option<Either<UserFailure, User>> failureOrSuccessOption,
   }) = _UserFormState;
 
   // String get nameValue => name.value.fold((f) => throw Error(), id);

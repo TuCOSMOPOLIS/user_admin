@@ -25,4 +25,28 @@ class UserImpl implements UserRepository {
       return Left(UnexpectedFailure());
     }
   }
+
+  @override
+  Future<Either<UserFailure, User>> createUser(
+      String authorUid, User user) async {
+    try {
+      final uri = Uri.parse("http://localhost:4000/api/auth/create");
+      final response = await http.post(
+        uri,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(user.toJson(authorUid)),
+      );
+      final data = jsonDecode(response.body);
+      if (response.statusCode == 200) {
+        return Right(User.fromJSON(data["user"]));
+      }
+      print(data);
+      return Left(UserAlreadyExists());
+    } catch (e) {
+      print(e);
+      return Left(UnexpectedFailure());
+    }
+  }
 }

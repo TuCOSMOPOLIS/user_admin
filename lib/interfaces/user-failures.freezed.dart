@@ -1,0 +1,247 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+
+part of 'user-failures.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$UserFailureTearOff {
+  const _$UserFailureTearOff();
+
+  UnexpectedFailure unexpectedFailure() {
+    return const UnexpectedFailure();
+  }
+
+  UserAlreadyExists userAlreadyExists() {
+    return const UserAlreadyExists();
+  }
+}
+
+/// @nodoc
+const $UserFailure = _$UserFailureTearOff();
+
+/// @nodoc
+mixin _$UserFailure {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpectedFailure,
+    required TResult Function() userAlreadyExists,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpectedFailure,
+    TResult Function()? userAlreadyExists,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UnexpectedFailure value) unexpectedFailure,
+    required TResult Function(UserAlreadyExists value) userAlreadyExists,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UnexpectedFailure value)? unexpectedFailure,
+    TResult Function(UserAlreadyExists value)? userAlreadyExists,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserFailureCopyWith<$Res> {
+  factory $UserFailureCopyWith(
+          UserFailure value, $Res Function(UserFailure) then) =
+      _$UserFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserFailureCopyWithImpl<$Res> implements $UserFailureCopyWith<$Res> {
+  _$UserFailureCopyWithImpl(this._value, this._then);
+
+  final UserFailure _value;
+  // ignore: unused_field
+  final $Res Function(UserFailure) _then;
+}
+
+/// @nodoc
+abstract class $UnexpectedFailureCopyWith<$Res> {
+  factory $UnexpectedFailureCopyWith(
+          UnexpectedFailure value, $Res Function(UnexpectedFailure) then) =
+      _$UnexpectedFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UnexpectedFailureCopyWithImpl<$Res>
+    extends _$UserFailureCopyWithImpl<$Res>
+    implements $UnexpectedFailureCopyWith<$Res> {
+  _$UnexpectedFailureCopyWithImpl(
+      UnexpectedFailure _value, $Res Function(UnexpectedFailure) _then)
+      : super(_value, (v) => _then(v as UnexpectedFailure));
+
+  @override
+  UnexpectedFailure get _value => super._value as UnexpectedFailure;
+}
+
+/// @nodoc
+
+class _$UnexpectedFailure implements UnexpectedFailure {
+  const _$UnexpectedFailure();
+
+  @override
+  String toString() {
+    return 'UserFailure.unexpectedFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UnexpectedFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpectedFailure,
+    required TResult Function() userAlreadyExists,
+  }) {
+    return unexpectedFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpectedFailure,
+    TResult Function()? userAlreadyExists,
+    required TResult orElse(),
+  }) {
+    if (unexpectedFailure != null) {
+      return unexpectedFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UnexpectedFailure value) unexpectedFailure,
+    required TResult Function(UserAlreadyExists value) userAlreadyExists,
+  }) {
+    return unexpectedFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UnexpectedFailure value)? unexpectedFailure,
+    TResult Function(UserAlreadyExists value)? userAlreadyExists,
+    required TResult orElse(),
+  }) {
+    if (unexpectedFailure != null) {
+      return unexpectedFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UnexpectedFailure implements UserFailure {
+  const factory UnexpectedFailure() = _$UnexpectedFailure;
+}
+
+/// @nodoc
+abstract class $UserAlreadyExistsCopyWith<$Res> {
+  factory $UserAlreadyExistsCopyWith(
+          UserAlreadyExists value, $Res Function(UserAlreadyExists) then) =
+      _$UserAlreadyExistsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserAlreadyExistsCopyWithImpl<$Res>
+    extends _$UserFailureCopyWithImpl<$Res>
+    implements $UserAlreadyExistsCopyWith<$Res> {
+  _$UserAlreadyExistsCopyWithImpl(
+      UserAlreadyExists _value, $Res Function(UserAlreadyExists) _then)
+      : super(_value, (v) => _then(v as UserAlreadyExists));
+
+  @override
+  UserAlreadyExists get _value => super._value as UserAlreadyExists;
+}
+
+/// @nodoc
+
+class _$UserAlreadyExists implements UserAlreadyExists {
+  const _$UserAlreadyExists();
+
+  @override
+  String toString() {
+    return 'UserFailure.userAlreadyExists()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UserAlreadyExists);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpectedFailure,
+    required TResult Function() userAlreadyExists,
+  }) {
+    return userAlreadyExists();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpectedFailure,
+    TResult Function()? userAlreadyExists,
+    required TResult orElse(),
+  }) {
+    if (userAlreadyExists != null) {
+      return userAlreadyExists();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UnexpectedFailure value) unexpectedFailure,
+    required TResult Function(UserAlreadyExists value) userAlreadyExists,
+  }) {
+    return userAlreadyExists(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UnexpectedFailure value)? unexpectedFailure,
+    TResult Function(UserAlreadyExists value)? userAlreadyExists,
+    required TResult orElse(),
+  }) {
+    if (userAlreadyExists != null) {
+      return userAlreadyExists(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserAlreadyExists implements UserFailure {
+  const factory UserAlreadyExists() = _$UserAlreadyExists;
+}

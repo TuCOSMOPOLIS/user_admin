@@ -24,6 +24,15 @@ class User {
         active: json['active'],
       );
 
+  Map<String, dynamic> toJson(String authorUid) {
+    return {
+      "authorUid": authorUid,
+      "name": name,
+      "password": password,
+      "role": role
+    };
+  }
+
   @override
   String toString() {
     return 'User(uid: $uid, name: $name, password: $password, role: $role, active: $active)';

@@ -1,3 +1,9 @@
-class UserFailure implements Exception {}
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class UnexpectedFailure extends UserFailure {}
+part 'user-failures.freezed.dart';
+
+@freezed
+class UserFailure with _$UserFailure {
+  const factory UserFailure.unexpectedFailure() = UnexpectedFailure;
+  const factory UserFailure.userAlreadyExists() = UserAlreadyExists;
+}

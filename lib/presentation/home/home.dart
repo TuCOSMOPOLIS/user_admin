@@ -1,5 +1,4 @@
 import 'dart:math' as Math;
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:users_admin/interfaces/user-failures.dart';
@@ -22,37 +21,32 @@ class Home extends StatelessWidget {
         elevation: 0,
       ),
       drawer: CustomDrawer(user: user),
-      body: Stack(
-        children: [
-          Center(
-            // child: UserItem(user: user),
-            child: Consumer(
-              builder: (_, watch, __) {
-                return watch(getUsers).maybeWhen(
-                  data: (Either<UserFailure, List<User>> failureOrSuccess) {
-                    return failureOrSuccess
-                        .fold((f) => Center(child: Text("Error")), (users) {
-                      return PageView.builder(
-                        itemCount: users.length,
-                        itemBuilder: (context, i) {
-                          final color = Color(
-                                  (Math.Random().nextDouble() * 0xFFFFFF)
-                                      .toInt())
-                              .withOpacity(1.0);
-                          return UserItem(
-                            user: users[i],
-                            color: color,
-                          );
-                        },
-                      );
-                    });
+      body: Center(
+        // child: UserItem(user: user),
+        child: Consumer(
+          builder: (_, watch, __) {
+            final state = watch(homeStateNotifier);
+
+            return state.when(
+              loading: () => Center(child: CircularProgressIndicator()),
+              loaded: (users) {
+                return PageView.builder(
+                  itemCount: users.length,
+                  itemBuilder: (context, i) {
+                    final color =
+                        Color((Math.Random().nextDouble() * 0xFFFFFF).toInt())
+                            .withOpacity(1.0);
+                    return UserItem(
+                      user: users[i],
+                      color: color,
+                    );
                   },
-                  orElse: () => Center(child: CircularProgressIndicator()),
                 );
               },
-            ),
-          ),
-        ],
+              error: () => Center(child: Text("Error")),
+            );
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         elevation: 0,

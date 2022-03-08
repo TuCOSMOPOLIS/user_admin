@@ -21,13 +21,16 @@ class _$UserFormStateTearOff {
       required Password password,
       String role = Role.CASHIER,
       bool loading = false,
-      bool showErrors = false}) {
+      bool showErrors = false,
+      Option<Either<UserFailure, User>> failureOrSuccessOption =
+          const None()}) {
     return _UserFormState(
       name: name,
       password: password,
       role: role,
       loading: loading,
       showErrors: showErrors,
+      failureOrSuccessOption: failureOrSuccessOption,
     );
   }
 }
@@ -42,6 +45,8 @@ mixin _$UserFormState {
   String get role => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
+  Option<Either<UserFailure, User>> get failureOrSuccessOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserFormStateCopyWith<UserFormState> get copyWith =>
@@ -58,7 +63,8 @@ abstract class $UserFormStateCopyWith<$Res> {
       Password password,
       String role,
       bool loading,
-      bool showErrors});
+      bool showErrors,
+      Option<Either<UserFailure, User>> failureOrSuccessOption});
 }
 
 /// @nodoc
@@ -77,6 +83,7 @@ class _$UserFormStateCopyWithImpl<$Res>
     Object? role = freezed,
     Object? loading = freezed,
     Object? showErrors = freezed,
+    Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -99,6 +106,10 @@ class _$UserFormStateCopyWithImpl<$Res>
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
               as bool,
+      failureOrSuccessOption: failureOrSuccessOption == freezed
+          ? _value.failureOrSuccessOption
+          : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<UserFailure, User>>,
     ));
   }
 }
@@ -115,7 +126,8 @@ abstract class _$UserFormStateCopyWith<$Res>
       Password password,
       String role,
       bool loading,
-      bool showErrors});
+      bool showErrors,
+      Option<Either<UserFailure, User>> failureOrSuccessOption});
 }
 
 /// @nodoc
@@ -136,6 +148,7 @@ class __$UserFormStateCopyWithImpl<$Res>
     Object? role = freezed,
     Object? loading = freezed,
     Object? showErrors = freezed,
+    Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_UserFormState(
       name: name == freezed
@@ -158,6 +171,10 @@ class __$UserFormStateCopyWithImpl<$Res>
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
               as bool,
+      failureOrSuccessOption: failureOrSuccessOption == freezed
+          ? _value.failureOrSuccessOption
+          : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<UserFailure, User>>,
     ));
   }
 }
@@ -170,7 +187,8 @@ class _$_UserFormState extends _UserFormState {
       required this.password,
       this.role = Role.CASHIER,
       this.loading = false,
-      this.showErrors = false})
+      this.showErrors = false,
+      this.failureOrSuccessOption = const None()})
       : super._();
 
   @override
@@ -186,10 +204,13 @@ class _$_UserFormState extends _UserFormState {
   @JsonKey(defaultValue: false)
   @override
   final bool showErrors;
+  @JsonKey(defaultValue: const None())
+  @override
+  final Option<Either<UserFailure, User>> failureOrSuccessOption;
 
   @override
   String toString() {
-    return 'UserFormState(name: $name, password: $password, role: $role, loading: $loading, showErrors: $showErrors)';
+    return 'UserFormState(name: $name, password: $password, role: $role, loading: $loading, showErrors: $showErrors, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -208,7 +229,10 @@ class _$_UserFormState extends _UserFormState {
                     .equals(other.loading, loading)) &&
             (identical(other.showErrors, showErrors) ||
                 const DeepCollectionEquality()
-                    .equals(other.showErrors, showErrors)));
+                    .equals(other.showErrors, showErrors)) &&
+            (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
+                const DeepCollectionEquality().equals(
+                    other.failureOrSuccessOption, failureOrSuccessOption)));
   }
 
   @override
@@ -218,7 +242,8 @@ class _$_UserFormState extends _UserFormState {
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(role) ^
       const DeepCollectionEquality().hash(loading) ^
-      const DeepCollectionEquality().hash(showErrors);
+      const DeepCollectionEquality().hash(showErrors) ^
+      const DeepCollectionEquality().hash(failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -228,11 +253,13 @@ class _$_UserFormState extends _UserFormState {
 
 abstract class _UserFormState extends UserFormState {
   factory _UserFormState(
-      {required Name name,
-      required Password password,
-      String role,
-      bool loading,
-      bool showErrors}) = _$_UserFormState;
+          {required Name name,
+          required Password password,
+          String role,
+          bool loading,
+          bool showErrors,
+          Option<Either<UserFailure, User>> failureOrSuccessOption}) =
+      _$_UserFormState;
   _UserFormState._() : super._();
 
   @override
@@ -245,6 +272,9 @@ abstract class _UserFormState extends UserFormState {
   bool get loading => throw _privateConstructorUsedError;
   @override
   bool get showErrors => throw _privateConstructorUsedError;
+  @override
+  Option<Either<UserFailure, User>> get failureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserFormStateCopyWith<_UserFormState> get copyWith =>
