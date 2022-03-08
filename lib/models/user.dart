@@ -33,8 +33,45 @@ class User {
     };
   }
 
+  User copyWith({
+    String? uid,
+    String? name,
+    String? password,
+    String? role,
+    bool? active,
+  }) {
+    return User(
+      uid: uid,
+      name: name ?? this.name,
+      password: password ?? this.password,
+      role: role ?? this.role,
+      active: active ?? this.active,
+    );
+  }
+
   @override
   String toString() {
     return 'User(uid: $uid, name: $name, password: $password, role: $role, active: $active)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is User &&
+        other.uid == uid &&
+        other.name == name &&
+        other.password == password &&
+        other.role == role &&
+        other.active == active;
+  }
+
+  @override
+  int get hashCode {
+    return uid.hashCode ^
+        name.hashCode ^
+        password.hashCode ^
+        role.hashCode ^
+        active.hashCode;
   }
 }

@@ -6,4 +6,5 @@ part 'user-failures.freezed.dart';
 class UserFailure with _$UserFailure {
   const factory UserFailure.unexpectedFailure() = UnexpectedFailure;
   const factory UserFailure.userAlreadyExists() = UserAlreadyExists;
+  const factory UserFailure.sameUser() = SameUser;
 }

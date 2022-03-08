@@ -25,7 +25,7 @@ final homeStateNotifier = StateNotifierProvider<HomeStateNotifier, HomeState>(
     (ref) => HomeStateNotifier(ref.watch(userRepository)));
 
 final userFormStateNotifier =
-    StateNotifierProvider<UserFormStateNotifier, UserFormState>(
+    StateNotifierProvider.autoDispose<UserFormStateNotifier, UserFormState>(
         (ref) => UserFormStateNotifier(ref.watch(userRepository)));
 
 final getUsers = FutureProvider<Either<UserFailure, List<User>>>(

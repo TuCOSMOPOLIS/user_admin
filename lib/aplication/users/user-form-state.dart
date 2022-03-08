@@ -24,10 +24,24 @@ class UserFormState with _$UserFormState {
   // String get nameValue => name.value.fold((f) => throw Error(), id);
   // String get passwordValue => password.value.fold((f) => throw Error(), id);
 
+  User get user => User(
+        name: name.getOrCrash,
+        password: password.getOrCrash,
+        role: role,
+        active: true,
+      );
+
   factory UserFormState.initial() {
     return UserFormState(
       name: Name(""),
       password: Password(""),
     );
+  }
+
+  factory UserFormState.loadUser(User user) {
+    return UserFormState(
+        name: Name(user.name),
+        password: Password(user.password),
+        role: user.role);
   }
 }

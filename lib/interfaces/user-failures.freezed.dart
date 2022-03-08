@@ -23,6 +23,10 @@ class _$UserFailureTearOff {
   UserAlreadyExists userAlreadyExists() {
     return const UserAlreadyExists();
   }
+
+  SameUser sameUser() {
+    return const SameUser();
+  }
 }
 
 /// @nodoc
@@ -34,12 +38,14 @@ mixin _$UserFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() unexpectedFailure,
     required TResult Function() userAlreadyExists,
+    required TResult Function() sameUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpectedFailure,
     TResult Function()? userAlreadyExists,
+    TResult Function()? sameUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,12 +53,14 @@ mixin _$UserFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(UnexpectedFailure value) unexpectedFailure,
     required TResult Function(UserAlreadyExists value) userAlreadyExists,
+    required TResult Function(SameUser value) sameUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnexpectedFailure value)? unexpectedFailure,
     TResult Function(UserAlreadyExists value)? userAlreadyExists,
+    TResult Function(SameUser value)? sameUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,6 +124,7 @@ class _$UnexpectedFailure implements UnexpectedFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() unexpectedFailure,
     required TResult Function() userAlreadyExists,
+    required TResult Function() sameUser,
   }) {
     return unexpectedFailure();
   }
@@ -125,6 +134,7 @@ class _$UnexpectedFailure implements UnexpectedFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpectedFailure,
     TResult Function()? userAlreadyExists,
+    TResult Function()? sameUser,
     required TResult orElse(),
   }) {
     if (unexpectedFailure != null) {
@@ -138,6 +148,7 @@ class _$UnexpectedFailure implements UnexpectedFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(UnexpectedFailure value) unexpectedFailure,
     required TResult Function(UserAlreadyExists value) userAlreadyExists,
+    required TResult Function(SameUser value) sameUser,
   }) {
     return unexpectedFailure(this);
   }
@@ -147,6 +158,7 @@ class _$UnexpectedFailure implements UnexpectedFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnexpectedFailure value)? unexpectedFailure,
     TResult Function(UserAlreadyExists value)? userAlreadyExists,
+    TResult Function(SameUser value)? sameUser,
     required TResult orElse(),
   }) {
     if (unexpectedFailure != null) {
@@ -202,6 +214,7 @@ class _$UserAlreadyExists implements UserAlreadyExists {
   TResult when<TResult extends Object?>({
     required TResult Function() unexpectedFailure,
     required TResult Function() userAlreadyExists,
+    required TResult Function() sameUser,
   }) {
     return userAlreadyExists();
   }
@@ -211,6 +224,7 @@ class _$UserAlreadyExists implements UserAlreadyExists {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpectedFailure,
     TResult Function()? userAlreadyExists,
+    TResult Function()? sameUser,
     required TResult orElse(),
   }) {
     if (userAlreadyExists != null) {
@@ -224,6 +238,7 @@ class _$UserAlreadyExists implements UserAlreadyExists {
   TResult map<TResult extends Object?>({
     required TResult Function(UnexpectedFailure value) unexpectedFailure,
     required TResult Function(UserAlreadyExists value) userAlreadyExists,
+    required TResult Function(SameUser value) sameUser,
   }) {
     return userAlreadyExists(this);
   }
@@ -233,6 +248,7 @@ class _$UserAlreadyExists implements UserAlreadyExists {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnexpectedFailure value)? unexpectedFailure,
     TResult Function(UserAlreadyExists value)? userAlreadyExists,
+    TResult Function(SameUser value)? sameUser,
     required TResult orElse(),
   }) {
     if (userAlreadyExists != null) {
@@ -244,4 +260,91 @@ class _$UserAlreadyExists implements UserAlreadyExists {
 
 abstract class UserAlreadyExists implements UserFailure {
   const factory UserAlreadyExists() = _$UserAlreadyExists;
+}
+
+/// @nodoc
+abstract class $SameUserCopyWith<$Res> {
+  factory $SameUserCopyWith(SameUser value, $Res Function(SameUser) then) =
+      _$SameUserCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SameUserCopyWithImpl<$Res> extends _$UserFailureCopyWithImpl<$Res>
+    implements $SameUserCopyWith<$Res> {
+  _$SameUserCopyWithImpl(SameUser _value, $Res Function(SameUser) _then)
+      : super(_value, (v) => _then(v as SameUser));
+
+  @override
+  SameUser get _value => super._value as SameUser;
+}
+
+/// @nodoc
+
+class _$SameUser implements SameUser {
+  const _$SameUser();
+
+  @override
+  String toString() {
+    return 'UserFailure.sameUser()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SameUser);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpectedFailure,
+    required TResult Function() userAlreadyExists,
+    required TResult Function() sameUser,
+  }) {
+    return sameUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpectedFailure,
+    TResult Function()? userAlreadyExists,
+    TResult Function()? sameUser,
+    required TResult orElse(),
+  }) {
+    if (sameUser != null) {
+      return sameUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UnexpectedFailure value) unexpectedFailure,
+    required TResult Function(UserAlreadyExists value) userAlreadyExists,
+    required TResult Function(SameUser value) sameUser,
+  }) {
+    return sameUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UnexpectedFailure value)? unexpectedFailure,
+    TResult Function(UserAlreadyExists value)? userAlreadyExists,
+    TResult Function(SameUser value)? sameUser,
+    required TResult orElse(),
+  }) {
+    if (sameUser != null) {
+      return sameUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SameUser implements UserFailure {
+  const factory SameUser() = _$SameUser;
 }

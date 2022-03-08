@@ -5,11 +5,13 @@ class UserItem extends StatelessWidget {
   const UserItem({
     Key? key,
     required this.user,
+    required this.update,
     this.color = Colors.grey,
   }) : super(key: key);
 
   final User user;
   final Color color;
+  final void Function() update;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class UserItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: update,
                 icon: Icon(Icons.edit),
                 iconSize: 30,
                 color: Colors.white,

@@ -1,19 +1,40 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:users_admin/aplication/users/user-form-state.dart';
 import 'package:users_admin/aplication/users/user-value-failures.dart';
 import 'package:users_admin/models/roles.dart';
+import 'package:users_admin/models/user.dart';
 import 'package:users_admin/providers.dart';
 
-class UserForm extends StatelessWidget {
-  const UserForm({Key? key}) : super(key: key);
+class UserForm extends HookWidget {
+  final User? user;
+
+  const UserForm({Key? key, this.user}) : super(key: key);
+  // @override
+  // void initState() {
+  //   if (widget.user != null) {
+  //     context.read(userFormStateNotifier.notifier).loadUser(widget.user!);
+  //   }
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
+    useEffect(() {
+      if (user != null) {
+        context.read(userFormStateNotifier.notifier).loadUser(user!);
+      }
+      // return () {
+      // dispose
+      //  metodos de limpieza
+      // };
+    }, [user]);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create"),
+        title: Text(user != null ? "Update" : "Create"),
         elevation: 0,
       ),
       body: Padding(
@@ -25,13 +46,26 @@ class UserForm extends StatelessWidget {
               () {},
               (failureOrSuccess) => failureOrSuccess.fold((f) {
                 showSnackbar(
-                    context,
-                    f.when(
-                        unexpectedFailure: () => "Server Error",
-                        userAlreadyExists: () => "User Already Exists"));
-              }, (user) {
-                showSnackbar(context, "User Created");
-                context.read(homeStateNotifier.notifier).addUser(user);
+                  context,
+                  f.when(
+                      unexpectedFailure: () => "Server Error",
+                      userAlreadyExists: () => "User Already Exists",
+                      sameUser: () =>
+                          "User can't update, because there aren't changes."),
+                );
+              }, (createdOrUpdatedUser) {
+                showSnackbar(
+                    context, user != null ? "User Updated" : "User Created");
+                if (user != null) {
+                  context
+                      .read(homeStateNotifier.notifier)
+                      .updateUser(createdOrUpdatedUser);
+                } else {
+                  context
+                      .read(homeStateNotifier.notifier)
+                      .addUser(createdOrUpdatedUser);
+                }
+
                 Navigator.of(context).pop();
               }),
             );
@@ -44,7 +78,9 @@ class UserForm extends StatelessWidget {
               return Column(
                 children: [
                   TextFormField(
+                    initialValue: user?.name,
                     onChanged: notifier.nameChanged,
+                    readOnly: user != null,
                     decoration: InputDecoration(
                         labelText: "NAME",
                         prefixIcon: Icon(Icons.person),
@@ -53,6 +89,7 @@ class UserForm extends StatelessWidget {
                             : null),
                   ),
                   TextFormField(
+                    initialValue: user?.password,
                     onChanged: notifier.passwordChanged,
                     decoration: InputDecoration(
                         labelText: "PASSWORD",
@@ -96,9 +133,12 @@ class UserForm extends StatelessWidget {
                     height: 50,
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: state.loading ? null : notifier.handleSubmit,
+                      onPressed: state.loading
+                          ? null
+                          : () => notifier.handleSubmit(optionOf(user)),
+                      // : () => notifier.handleSubmit( user!= null ? Some(user!) : const None()  ),
                       child: Text(
-                        "Create",
+                        user != null ? "Update" : "Create",
                         style: TextStyle(fontSize: 20),
                       ),
                     ),

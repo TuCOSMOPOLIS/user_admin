@@ -26,4 +26,13 @@ class HomeStateNotifier extends StateNotifier<HomeState> {
     );
     state = HomeState.loaded(users: [user, ...userList]);
   }
+
+  void updateUser(User user) {
+    final userList = state.maybeWhen(
+      loaded: (users) => users,
+      orElse: () => <User>[],
+    );
+    state = HomeState.loaded(
+        users: [user, ...userList.where((u) => u.uid != user.uid)]);
+  }
 }

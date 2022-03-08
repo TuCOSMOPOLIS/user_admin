@@ -39,6 +39,10 @@ class Home extends StatelessWidget {
                     return UserItem(
                       user: users[i],
                       color: color,
+                      update: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => UserForm(user: users[i])));
+                      },
                     );
                   },
                 );
